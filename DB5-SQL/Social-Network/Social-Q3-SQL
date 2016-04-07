@@ -1,0 +1,8 @@
+SELECT H1.name, H1.grade, H2.name, H2.grade
+FROM Highschooler H1, Highschooler H2,
+    (
+    SELECT L1.ID1, L1.ID2
+    FROM Likes L1 JOIN Likes L2
+    WHERE L1.ID1 = L2.ID2 AND L1.ID2 = L2.ID1
+    ) ML
+WHERE H1.ID = ML.ID1 AND H2.ID = ML.ID2 AND H1.name < H2.name;

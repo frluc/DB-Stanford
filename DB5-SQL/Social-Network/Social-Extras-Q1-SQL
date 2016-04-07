@@ -1,0 +1,6 @@
+SELECT H1.name, H1.grade, H2.name, H2.grade, H3.name, H3.grade
+FROM Highschooler H1, Highschooler H2, Highschooler H3,
+    ( SELECT L1.ID1, L1.ID2, L2.ID2 AS ID3
+    FROM Likes L1, Likes L2
+    WHERE L1.ID2 = L2.ID1 AND L1.ID1 <> L2.ID2 )
+WHERE H1.ID = ID1 AND H2.ID = ID2 AND H3.ID = ID3;

@@ -1,0 +1,2 @@
+SELECT COUNT(DISTINCT ID) - COUNT(DISTINCT name)
+FROM Highschooler;

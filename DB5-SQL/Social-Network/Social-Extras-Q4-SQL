@@ -1,0 +1,7 @@
+SELECT COUNT(H.ID)
+FROM Highschooler H, Friend F,
+    (
+    SELECT * FROM Highschooler H, Friend F 
+    WHERE H.ID = F.ID1 AND H.name = "Cassandra"
+    ) FC
+WHERE H.ID = F.ID1 AND F.ID2 = FC.ID2;

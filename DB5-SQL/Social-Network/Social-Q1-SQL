@@ -1,0 +1,3 @@
+SELECT H1.name
+FROM Highschooler H1, Friend, Highschooler H2
+WHERE H1.ID = Friend.ID1 AND Friend.ID2 = H2.ID AND H2.name = "Gabriel";

@@ -1,0 +1,8 @@
+SELECT name, grade
+FROM Highschooler
+EXCEPT
+SELECT DISTINCT H1.name, H1.grade
+FROM Highschooler H1, Highschooler H2, Friend
+WHERE H1.ID = Friend.ID1 AND H2.ID = Friend.ID2
+AND H1.grade <> H2.grade
+ORDER BY grade, name;

@@ -1,0 +1,12 @@
+SELECT name, grade
+FROM Highschooler H,
+(
+    SELECT ID1, COUNT(ID2) AS cnt, max
+    FROM Friend,
+        (
+        SELECT MAX(Friends) AS max
+        FROM (SELECT ID1, COUNT(ID2) AS Friends FROM Friend GROUP BY ID1)
+        )
+    GROUP BY ID1
+)
+WHERE H.ID = ID1 AND cnt = max;

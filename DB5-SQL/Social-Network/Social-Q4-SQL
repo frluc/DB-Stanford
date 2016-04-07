@@ -1,0 +1,8 @@
+SELECT name, grade
+FROM Highschooler JOIN
+    (
+    SELECT ID FROM Highschooler
+    EXCEPT
+    SELECT * FROM (SELECT ID1 FROM Likes UNION SELECT ID2 FROM Likes)
+    ) NL USING(ID)
+ORDER BY grade, name;

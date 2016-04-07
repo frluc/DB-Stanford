@@ -1,0 +1,37 @@
+SELECT H1.name, H1.grade, H2.name, H2.grade, H3.name, H3.grade FROM
+(
+SELECT Liker, Liked, Common FROM
+(
+SELECT Liker, Liked, LK.Common AS Common FROM
+(
+    SELECT ID2 AS Liker, ID1 AS Common
+    FROM Friend
+    WHERE Liker IN (
+    SELECT ID1 FROM (
+        SELECT * FROM Likes
+        EXCEPT
+        SELECT * FROM Friend
+        )
+    )
+) LK,
+(
+    SELECT ID1 AS Common, ID2 AS Liked
+    FROM Friend
+    WHERE Liked IN (
+    SELECT ID2 FROM (
+        SELECT * FROM Likes
+        EXCEPT
+        SELECT * FROM Friend
+        )
+    )
+) LD
+WHERE LK.Common = LD.Common
+),
+(
+    SELECT * FROM Likes
+    EXCEPT
+    SELECT * FROM Friend
+)
+WHERE Liker = ID1 AND Liked = ID2
+), Highschooler H1, Highschooler H2, Highschooler H3
+WHERE H1.ID = Liker AND H2.ID = Liked AND H3.ID = Common;
