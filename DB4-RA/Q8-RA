@@ -1,0 +1,10 @@
+\project_{pizzeria} serves
+\diff
+\project_{pizzeria} (
+    serves
+    \join (
+        \project_{pizza} serves
+        \diff
+        \project_{pizza} (\select_{age > 30} (Person \join Eats))
+    )
+);
