@@ -1,0 +1,5 @@
+UPDATE Movie
+SET year = (year + 25)
+WHERE title IN (
+    SELECT title FROM Movie JOIN Rating USING(mID) 
+    GROUP BY title HAVING AVG(stars) >= 4 );
