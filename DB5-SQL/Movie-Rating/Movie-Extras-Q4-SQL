@@ -1,0 +1,5 @@
+SELECT title FROM Movie
+EXCEPT
+SELECT DISTINCT title
+FROM Movie JOIN Rating USING(mID) JOIN Reviewer USING(rID)
+WHERE name = "Chris Jackson";

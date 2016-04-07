@@ -1,0 +1,3 @@
+SELECT name, title, stars, ratingDate
+FROM Movie JOIN Rating USING(mID) JOIN Reviewer USING(rID)
+ORDER BY name, title, stars;

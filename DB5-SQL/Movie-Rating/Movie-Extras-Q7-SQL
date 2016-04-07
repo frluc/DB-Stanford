@@ -1,0 +1,4 @@
+SELECT title, AVG(stars) AS average
+FROM Movie JOIN Rating USING(mID)
+GROUP BY title
+ORDER BY average DESC, title;

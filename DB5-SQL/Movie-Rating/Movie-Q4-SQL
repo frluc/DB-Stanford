@@ -1,0 +1,3 @@
+SELECT name
+FROM Reviewer JOIN Rating USING(rID)
+WHERE ratingDate IS NULL;

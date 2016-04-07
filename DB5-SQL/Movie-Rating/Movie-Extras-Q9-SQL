@@ -1,0 +1,8 @@
+SELECT title, director
+FROM Movie JOIN (    
+    SELECT director, COUNT(title) AS directed
+    FROM Movie
+    GROUP BY director
+    )
+    USING(director)
+WHERE directed > 1;

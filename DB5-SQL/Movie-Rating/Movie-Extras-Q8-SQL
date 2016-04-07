@@ -1,0 +1,4 @@
+SELECT name
+FROM Reviewer
+JOIN (SELECT rID, COUNT(*) AS Ratings FROM Rating GROUP BY rID) USING (rID)
+WHERE Ratings >= 3;

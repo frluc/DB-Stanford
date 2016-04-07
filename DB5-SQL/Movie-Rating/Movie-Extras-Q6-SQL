@@ -1,0 +1,3 @@
+SELECT name, title, R1.stars
+FROM Movie JOIN Rating R1 USING(mID) JOIN Reviewer USING(rID)
+WHERE NOT EXISTS (SELECT * FROM Rating R2 WHERE R2.stars < R1.stars);

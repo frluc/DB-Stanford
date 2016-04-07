@@ -1,0 +1,17 @@
+SELECT title, average
+FROM (
+    SELECT title, AVG(stars) AS average
+    FROM Movie JOIN Rating USING(mID)
+    GROUP BY title
+    ORDER BY average DESC, title
+    ),
+    (
+    SELECT MIN(average) AS min
+    FROM (
+        SELECT title, AVG(stars) AS average
+        FROM Movie JOIN Rating USING(mID)
+        GROUP BY title
+        ORDER BY average DESC, title
+        )
+    )
+WHERE average = min;

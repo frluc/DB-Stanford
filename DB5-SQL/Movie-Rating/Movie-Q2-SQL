@@ -1,0 +1,4 @@
+SELECT DISTINCT year
+FROM Movie JOIN Rating USING(mID)
+WHERE stars > 3
+ORDER BY year;

@@ -1,0 +1,11 @@
+SELECT ABS(AVG(B80) - AVG(A80))
+FROM
+	(SELECT AVG(stars) AS B80
+	FROM Movie JOIN Rating USING(mID)
+	WHERE year <= 1980
+	GROUP BY Rating.mID),
+
+	(SELECT AVG(stars) AS A80
+	FROM Movie JOIN Rating USING(mID)
+	WHERE year > 1980
+	GROUP BY Rating.mID);

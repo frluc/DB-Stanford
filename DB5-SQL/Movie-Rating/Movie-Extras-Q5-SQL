@@ -1,0 +1,6 @@
+SELECT DISTINCT RW1.name, RW2.name
+FROM Reviewer RW1, Rating R1, Reviewer RW2, Rating R2
+WHERE RW1.rID = R1.rID
+AND RW2.rID = R2.rID
+AND R1.mID = R2.mID
+AND RW1.name < RW2.name;
