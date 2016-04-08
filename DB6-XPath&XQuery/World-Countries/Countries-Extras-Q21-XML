@@ -1,0 +1,21 @@
+let $mp :=
+    for $c in doc('countries.xml')//country[count(language) > 1]
+    for $lg in $c/language
+    where xs:float($lg/data(@percentage)) = xs:float(max($c/language/data(@percentage)))
+    return $lg
+    
+let $lp := 
+    for $c in doc('countries.xml')//country[count(language) > 1]
+    for $lg in $c/language
+    where xs:float($lg/data(@percentage)) = xs:float(min($c/language/data(@percentage)))
+    return $lg
+
+for $m in $mp
+for $l in $lp
+where data($m) = data($l)
+
+return
+    <LangPair language="{ data($l) }">
+        <MostPopular>{ $m/parent::country/data(@name) }</MostPopular>
+        <LeastPopular>{ $l/parent::country/data(@name) }</LeastPopular>
+    </LangPair>

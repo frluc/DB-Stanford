@@ -1,0 +1,1 @@
+doc("courses.xml")//Course[Instructors//First_Name = "Daphne" or Instructors//First_Name = "Julie"]/data(@Number)

@@ -1,0 +1,1 @@
+doc("courses.xml")//Course[contains(Description, "system") and (@Enrollment > 100)]//Last_Name

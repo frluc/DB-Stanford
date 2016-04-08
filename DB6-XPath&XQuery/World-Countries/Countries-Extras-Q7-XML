@@ -1,0 +1,1 @@
+doc("countries.xml")//country[city[(name = preceding::city/name) or (name = following::city/name)]]/data(@name)

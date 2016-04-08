@@ -1,0 +1,1 @@
+doc("countries.xml")//country[@population > 100000000]/data(@name)

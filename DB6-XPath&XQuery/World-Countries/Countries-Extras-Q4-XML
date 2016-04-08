@@ -1,0 +1,1 @@
+doc("countries.xml")//country[./@name = "Qatar"]/(@population div @area)

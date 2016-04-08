@@ -1,0 +1,4 @@
+let $cpl := doc("countries.xml")//country/city/population
+let $max := max($cpl)
+for $c in doc("countries.xml")//country[./city/population = $max]
+return $c/data(@name)

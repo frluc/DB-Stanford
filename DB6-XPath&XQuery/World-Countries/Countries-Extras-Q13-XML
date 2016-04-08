@@ -1,0 +1,1 @@
+doc("countries.xml")//country[count(language) = 0 and count(city) = 0 and @population > 10000000]/data(@name)

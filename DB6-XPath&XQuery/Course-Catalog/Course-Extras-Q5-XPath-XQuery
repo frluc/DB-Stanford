@@ -1,0 +1,1 @@
+doc("courses.xml")//Course[Instructors//Last_Name = //Chair/Professor/Last_Name]/Title

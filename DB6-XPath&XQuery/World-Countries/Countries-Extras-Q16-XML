@@ -1,0 +1,1 @@
+doc("countries.xml")/avg(//country[language = "Russian"]/count(language))

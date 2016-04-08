@@ -1,0 +1,1 @@
+doc("countries.xml")//country[language = "German" and language[. = "German"]/@percentage > 50]/data(@name)

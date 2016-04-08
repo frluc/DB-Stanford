@@ -1,0 +1,9 @@
+for $country in doc("countries.xml")//country[city[population > 7000000]]
+return
+<country name="{ $country/data(@name) }">
+    {
+    for $cn in $country/city[population > 7000000]/data(name)
+    return
+    <big> { $cn } </big>
+    }
+</country>

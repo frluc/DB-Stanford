@@ -1,0 +1,1 @@
+doc("countries.xml")/count(//country[language = "Russian"])

@@ -1,0 +1,2 @@
+for $c in distinct-values(doc("countries.xml")//city[(name = preceding::city/name) or (name = following::city/name)]/name)
+return <name> { $c } </name>

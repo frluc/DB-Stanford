@@ -1,0 +1,1 @@
+doc("countries.xml")//country[city/population > (./@population div 3)]/data(@name)

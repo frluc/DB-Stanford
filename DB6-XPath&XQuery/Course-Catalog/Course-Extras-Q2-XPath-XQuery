@@ -1,0 +1,1 @@
+doc("courses.xml")//Course[(Title = preceding::Course/Title) or (Title = following::Course/Title)]/data(@Number)

@@ -1,0 +1,10 @@
+<Summary>
+{
+for $c in doc("courses.xml")//Department[@Code = "CS"]/Course
+order by xs:int($c/@Enrollment)
+return
+    <Course> { $c/@Enrollment }
+        { $c/Title }
+    </Course>
+}
+</Summary>

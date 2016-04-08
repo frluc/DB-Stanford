@@ -1,0 +1,4 @@
+for $c in doc("countries.xml")//country
+for $ln in distinct-values($c/language)
+where contains($ln, $c/@name)
+return $ln

@@ -1,0 +1,10 @@
+<result>
+    <French>
+{ for $fr in doc("countries.xml")//country[language = "French"]/data(@name)
+return <country> { $fr } </country> }
+    </French>
+    <German>
+{ for $de in doc("countries.xml")//country[language = "German"]/data(@name)
+return <country> { $de } </country> }
+    </German>
+</result>

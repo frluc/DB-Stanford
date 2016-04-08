@@ -1,0 +1,1 @@
+doc("countries.xml")//city[./name = ../@name]/name

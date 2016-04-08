@@ -1,0 +1,2 @@
+doc("courses.xml")/Course_Catalog/Department[@Code='CS']
+/(sum(Course/@Enrollment) div count(Course))

@@ -1,0 +1,16 @@
+<result>
+{
+let $dl := doc("countries.xml")//country/(@population div @area)
+let $max := max($dl)
+for $c in doc("countries.xml")//country[(@population div @area) = $max]
+return
+<highest density="{ $max }"> { $c/data(@name) } </highest>
+}
+{
+let $dl := doc("countries.xml")//country/(@population div @area)
+let $min := min($dl)
+for $c in doc("countries.xml")//country[(@population div @area) = $min]
+return
+<lowest density="{ $min }"> { $c/data(@name) } </lowest>
+}
+</result>

@@ -1,0 +1,1 @@
+doc("courses.xml")//Course[count(.//Professor) >= 1 and count(.//Lecturer) >= 1]/Title

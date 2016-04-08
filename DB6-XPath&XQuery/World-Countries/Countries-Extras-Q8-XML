@@ -1,0 +1,4 @@
+for $c in doc("countries.xml")//country
+for $ln in $c/language
+where contains($c/@name, $ln)
+return $c/data(@name)

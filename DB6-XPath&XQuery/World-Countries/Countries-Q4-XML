@@ -1,0 +1,1 @@
+doc("countries.xml")//country[count(city[population > 3000000]) >= 3]/data(@name)

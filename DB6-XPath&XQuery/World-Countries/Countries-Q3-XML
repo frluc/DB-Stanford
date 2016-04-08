@@ -1,0 +1,1 @@
+doc("countries.xml")/countries/(sum(country[language = "Russian"]/data(@population)) div count(country[language = "Russian"]))

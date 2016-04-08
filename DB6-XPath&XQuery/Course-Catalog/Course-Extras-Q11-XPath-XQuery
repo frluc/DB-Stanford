@@ -1,0 +1,22 @@
+<Inverted_Course_Catalog>
+{
+for $ln in distinct-values(doc("courses.xml")//Professor/Last_Name)
+for $fn in distinct-values(doc("courses.xml")//Professor[Last_Name=$ln]/First_Name)
+order by $ln
+return
+<Professor>
+    <First_Name> { $fn } </First_Name>
+    { for $mi in distinct-values(doc("courses.xml")//Professor[Last_Name=$ln]/Middle_Initial)
+    return <Middle_Initial> { $mi } </Middle_Initial> }
+    <Last_Name> { $ln } </Last_Name>
+    { for $cn in distinct-values(doc("courses.xml")//Course[Instructors/Professor/Last_Name=$ln]/count(@Number))
+    where $cn != 0
+    return <Courses>
+        {
+        for $c in distinct-values(doc("courses.xml")//Course[Instructors/Professor/Last_Name=$ln]/data(@Number))
+        return <Course> { $c } </Course>
+        }
+    </Courses> }
+</Professor>
+}
+</Inverted_Course_Catalog>

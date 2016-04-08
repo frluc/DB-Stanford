@@ -1,0 +1,15 @@
+<Professors>
+{
+for $ln in distinct-values(doc("courses.xml")//Professor/Last_Name)
+for $fn in distinct-values(doc("courses.xml")//Professor[Last_Name=$ln]/First_Name)
+order by $ln
+return
+<Professor>
+    <First_Name> { $fn } </First_Name>
+    { for $mi in distinct-values(doc("courses.xml")//Professor[Last_Name=$ln]/Middle_Initial)
+    return <Middle_Initial> { $mi } </Middle_Initial>
+    }
+    <Last_Name> { $ln } </Last_Name>
+</Professor>
+}
+</Professors>

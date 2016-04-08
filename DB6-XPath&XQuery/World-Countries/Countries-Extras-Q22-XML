@@ -1,0 +1,14 @@
+<languages>
+{
+for $l in distinct-values(doc('countries.xml')//language)
+order by $l
+return
+    <language name="{ $l }">
+    {
+    for $c in doc('countries.xml')//country[language = $l]
+    return
+        <country name="{$c/data(@name)}" speakers="{ xs:int($c/data(@population) * $c/language[.=$l]/data(@percentage) div 100) }"/>
+    }
+    </language>
+}
+</languages>
