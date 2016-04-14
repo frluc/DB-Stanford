@@ -1,0 +1,8 @@
+CREATE TRIGGER Q1
+AFTER INSERT ON Highschooler
+FOR EACH ROW
+WHEN New.name = "Friendly"
+BEGIN
+    INSERT INTO Likes 
+    SELECT New.ID, ID FROM Highschooler WHERE grade = New.grade AND name <> New.name;
+END;

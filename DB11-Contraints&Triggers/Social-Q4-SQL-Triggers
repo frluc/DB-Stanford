@@ -1,0 +1,7 @@
+CREATE TRIGGER Q4
+AFTER UPDATE OF grade ON Highschooler
+FOR EACH ROW
+BEGIN
+    DELETE FROM Highschooler
+    WHERE grade > 12;
+END;
