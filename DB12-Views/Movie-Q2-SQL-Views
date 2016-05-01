@@ -1,0 +1,8 @@
+CREATE TRIGGER LateRatingStarsUpdate
+INSTEAD OF UPDATE OF stars ON LateRating
+FOR EACH ROW
+BEGIN
+    UPDATE Rating
+    SET stars = New.stars
+    WHERE mID = New.mID AND ratingDate = New.ratingDate;
+END;

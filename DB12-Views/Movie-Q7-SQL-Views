@@ -1,0 +1,11 @@
+CREATE TRIGGER HighlyRatedInsert
+INSTEAD OF INSERT ON HighlyRated
+FOR EACH ROW
+WHEN EXISTS
+    (SELECT * FROM Movie
+    WHERE mID = New.mID 
+    AND title = New.title)
+BEGIN
+    INSERT INTO Rating
+    VALUES (201, New.mID, 5, NULL);
+END;

@@ -1,0 +1,8 @@
+CREATE TRIGGER LateRatingTitleUpdate
+INSTEAD OF UPDATE OF title ON LateRating
+FOR EACH ROW
+BEGIN
+    UPDATE Movie
+    SET title = New.title
+    WHERE mID = New.mID;
+END;

@@ -1,0 +1,19 @@
+CREATE TRIGGER LateRatingUpdate
+INSTEAD OF UPDATE ON LateRating
+FOR EACH ROW
+WHEN Old.ratingDate = New.ratingDate
+BEGIN
+
+    UPDATE Movie
+    SET title = New.title, mID = New.mID
+    WHERE mID = Old.mID;
+    
+    UPDATE Rating
+    SET stars = New.stars
+    WHERE mID = Old.mID AND ratingDate = Old.ratingDate;
+    
+    UPDATE Rating
+    SET mID = New.mID
+    WHERE mID = Old.mID;
+    
+END;
